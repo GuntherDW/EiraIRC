@@ -54,7 +54,8 @@ public class CommandServIRC implements ICommand {
 		try {
 			IRCCommandHandler.processCommand(sender, args, true);
 		} catch (WrongUsageException e) {
-			ChatComponentBuilder ccb = new ChatComponentBuilder();
+			// TODO : Blay should check for arraysizes in ChatComponentBuilder and accomodate for them?
+			ChatComponentBuilder ccb = new ChatComponentBuilder(2);
 			ccb.color('c').lang("commands.generic.usage", ccb.push().lang(e.getMessage(), e.getErrorOjbects()).pop()).send(sender);
 		}
 	}
